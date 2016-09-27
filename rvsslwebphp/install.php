@@ -30,7 +30,7 @@ $laddertables[]= 'LadderCountDownMode';
 $laddertables[]= 'LadderKamikazeMode';
 
 
-if (!isset($HTTP_GET_VARS["step"])) {
+if (!isset($_GET["step"])) {
 $step='1';
 ?>
 <form action="install.php">
@@ -60,7 +60,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA<br>
 <a href="gpl.txt">View the GNU General Public License</a>
 <?
 }
-else if ($HTTP_GET_VARS["step"]=='2') {
+else if ($_GET["step"]=='2') {
 ?>
 <form action="install.php">
 <b><u>Step 2</u></b><br><br>
@@ -87,7 +87,7 @@ foreach ($laddertables as $item)
 <br><hr><input type="hidden" name="step" value="3"><input type="submit" value="To Step 3"></form>
 <?
 }
-else if ($HTTP_GET_VARS["step"]=='3') {
+else if ($_GET["step"]=='3') {
 $db = mysql_connect("$dbHost", "$dbUser", "$dbPass") or die ("<CENTER>Connect-Error to MySQL!");
 @mysql_select_db("$dbDatabase", $db) or die ("<CENTER>Connect-Error to Database!");
 
